@@ -13,7 +13,7 @@ export class CreateAuthDto {
   firstName: string;
 
   @IsString()
-  lasName: string;
+  lastName: string;
 
   birthday: Date;
 }
