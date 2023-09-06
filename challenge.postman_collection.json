@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "6f0135e2-0732-461a-a1c8-3125cb19463c",
+		"name": "challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getProducts",
+			"request": {
+				"auth": {
+					"type": "apikey"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/products?currency=pesos&name=Pera reta",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products"
+					],
+					"query": [
+						{
+							"key": "currency",
+							"value": "pesos"
+						},
+						{
+							"key": "name",
+							"value": "Pera reta"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "userLogin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"challenge\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "userCreate",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MDUyMzI4OTEwMmE0YjUzMDhjODAzNDkiLCJ1c2VybmFtZSI6ImNoYWxsZW5nZSIsImlhdCI6MTY5NDAxMzE4OCwiZXhwIjoxNjk0MDEzNDg4fQ.EBLcdC4ju1xoK-rNSAdU_v37zYRDTOqLJr9O62Kd9ss",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"bautiElGrande\",\r\n    \"email\": \"bauti@chrr.cc\",\r\n    \"password\": \"challenge\",\r\n    \"firstName\": \"bauti\",\r\n    \"lastName\": \"echaide\",\r\n    \"role\": \"admin\",\r\n    \"active\": true,\r\n    \"birtday\": \"1998-08-23T00:00:00.000+00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createProduct",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhdXRpQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiMTIzNHBlcGUiLCJpYXQiOjE2OTM5OTE0OTMsImV4cCI6MTY5Mzk5MTczM30.ASH2eau2ubOn1GQphhd6ChnBkqNHlLoPP9badm4TrCo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"SKU\": 435334545,\r\n        \"code\": 2,\r\n        \"name\": \"Manzana reta\",\r\n        \"description\": \"Manzana del pueblo donde vivo\",\r\n        \"pictures\": [\r\n            \"https://www.semana.com/resizer/u-INT9wLmacPmolDokrINVUW5QA=/1920x0/smart/filters:format(jpg):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/semana/LQYEQRID3REUJGNBB23BW2C3FY.jpg\"\r\n        ],\r\n        \"price\": 300,\r\n        \"currency\": \"pesos\"\r\n    },\r\n    {\r\n        \"SKU\": 435334546,\r\n        \"name\": \"Pera reta\",\r\n        \"pictures\": [\r\n            \"https://www.semana.com/resizer/u-INT9wLmacPmolDokrINVUW5QA=/1920x0/smart/filters:format(jpg):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/semana/LQYEQRID3REUJGNBB23BW2C3FY.jpg\"\r\n        ],\r\n        \"price\": 300,\r\n        \"currency\": \"pesos\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
