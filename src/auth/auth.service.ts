@@ -1,9 +1,9 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { User, UserDocument } from 'src/user/entities/user.entity';
+import { User, UserDocument } from '../user/entities/user.entity';
 import { JwtService } from '@nestjs/jwt';
-import { loginData } from './dto/login.interface';
+import { loginDataDto } from './dto/login.interface';
 @Injectable()
 export class AuthService {
   constructor(
@@ -11,7 +11,7 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  async login(userObjetLogin: loginData): Promise<{ access_token: string }> {
+  async login(userObjetLogin: loginDataDto): Promise<{ access_token: string }> {
     try {
       const { email, username } = userObjetLogin;
 

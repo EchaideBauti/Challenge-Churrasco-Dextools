@@ -16,7 +16,6 @@ export class UserService {
       const existUser = await this.userModel.findOne({
         $or: [{ username: username }, { email: email }],
       });
-      console.log(existUser);
       if (existUser?.username === username || existUser?.email === email) {
         throw new BadRequestException({
           status: HttpStatus.BAD_REQUEST,
